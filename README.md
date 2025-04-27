@@ -60,6 +60,47 @@
    - 多种中文优化嵌入模型支持
    - 支持批处理以提高效率
 
+## Cursor IDE 规则使用指南
+
+本项目配备了 Cursor IDE 规则文件，这些规则可以帮助你更快地理解和导航代码库。使用 Cursor IDE 打开项目时，这些规则将自动加载。
+
+### 可用的规则文件
+
+在 `.cursor/rules/` 目录下有以下规则文件：
+
+1. **langgraph-rag.mdc** - 项目整体结构和主要功能介绍
+2. **model-integration.mdc** - 大语言模型和嵌入模型的集成详情
+3. **langgraph-workflow.mdc** - LangGraph 工作流程详细说明
+4. **usage-guide.mdc** - 系统使用和配置指南
+
+### 如何使用规则
+
+在 Cursor IDE 中，你可以通过以下方式使用这些规则：
+
+1. **快速跳转到相关文件**
+   - 规则文件中的链接（如 `[main.py](mdc:Langgraph/langgraphRAG_DeepSeek_text-embedding-v3/main.py)`）可以直接点击跳转到对应文件
+
+2. **了解项目结构**
+   - 通过 langgraph-rag.mdc 文件了解项目的整体结构和核心组件
+
+3. **掌握模型集成**
+   - 通过 model-integration.mdc 文件了解如何配置和使用不同的语言模型和嵌入模型
+
+4. **理解 LangGraph 工作流**
+   - 通过 langgraph-workflow.mdc 文件深入了解 RAG 系统的工作流程和实现原理
+
+5. **快速上手**
+   - 通过 usage-guide.mdc 文件获取系统的使用方法和配置选项
+
+### 如何查看规则
+
+在 Cursor IDE 中，可以通过以下方式查看规则：
+
+1. 打开 `.cursor/rules/` 目录下的 `.mdc` 文件
+2. 使用 Cursor 内置的 AI 助手，询问关于代码库的问题，AI 会根据规则提供更准确的回答
+
+Cursor 规则可以帮助你更快地理解项目结构，减少阅读和导航代码的时间，提高开发效率。
+
 ## 安装说明
 
 1. 克隆项目到本地：
