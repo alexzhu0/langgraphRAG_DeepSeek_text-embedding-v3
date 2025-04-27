@@ -1,0 +1,55 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# LangGraph 智能文档检索系统
+
+这是一个基于 LangGraph 框架开发的智能文档检索与问答系统。该系统能够从本地文档中创建向量检索库，并基于用户查询提供精确的答案。
+
+## 项目结构与核心组件
+
+### 主要入口点
+- [main.py](mdc:Langgraph/langgraphRAG_DeepSeek_text-embedding-v3/main.py) - 主程序入口，包含命令行接口和主要功能函数
+
+### 核心功能模块
+- [agentic_rag.py](mdc:Langgraph/langgraphRAG_DeepSeek_text-embedding-v3/agentic_rag.py) - 基于LangGraph的智能检索工作流实现
+- [local_loader.py](mdc:Langgraph/langgraphRAG_DeepSeek_text-embedding-v3/local_loader.py) - 本地文档加载功能，支持多种文档格式
+- [deepseek_integration.py](mdc:Langgraph/langgraphRAG_DeepSeek_text-embedding-v3/deepseek_integration.py) - 大模型和嵌入模型集成
+
+### 数据存储
+- [chroma_db](mdc:Langgraph/chroma_db) - 向量数据库存储目录
+
+## 工作流程
+
+1. **文档加载与索引**
+   - 从本地文档目录加载多种格式的文档（PDF、Word、TXT、Markdown）
+   - 使用文本分割器将文档分块
+   - 使用嵌入模型生成文档块的向量表示
+   - 将向量存储到ChromaDB向量数据库中
+
+2. **智能检索过程**
+   - 接收用户查询并生成查询向量
+   - 从向量数据库中检索相关文档
+   - 评估文档相关性，必要时重写查询
+   - 使用检索到的文档和用户查询生成回答
+
+3. **模型集成**
+   - 支持DeepSeek大语言模型进行生成
+   - 支持多种嵌入模型选项，包括阿里云百炼和本地Sentence-Transformer模型
+   - 针对中文进行了特别优化
+
+## 使用方法
+
+可以通过命令行参数或者导入相关函数在Python代码中使用：
+
+```python
+# 索引本地文档
+from main import index_local_documents
+retrieval_tools = index_local_documents(doc_dir="文档目录路径")
+
+# 处理查询
+from main import process_query
+answer = process_query("你的问题")
+```
+
